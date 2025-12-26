@@ -1,14 +1,14 @@
 name: ci
 
 on:
-pull_request:
-branches: [ "main" ]
-push:
-branches: [ "main" ]
+  pull_request:
+      branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
 permissions:
-contents: read
-packages: write
+  contents: read
+  packages: write
 
 jobs:
   build:
