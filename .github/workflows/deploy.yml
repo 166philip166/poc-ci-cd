@@ -13,13 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build image (staging)
-        run: docker build -t ghcr.io/<owner>/<repo>:staging .
-
-      - name: Push image (staging)
-        run: |
-          echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-          docker push ghcr.io/<owner>/<repo>:staging
+      - name: Build (staging)
+        run: echo "build staging"
 
       - name: Deploy to staging
         run: echo "deploy staging"
@@ -31,13 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build image (production)
-        run: docker build -t ghcr.io/<owner>/<repo>:${{ github.ref_name }} .
-
-      - name: Push image (production)
-        run: |
-          echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-          docker push ghcr.io/<owner>/<repo>:${{ github.ref_name }}
+      - name: Build (production)
+        run: echo "build production"
 
       - name: Deploy to production
         run: echo "deploy production"
